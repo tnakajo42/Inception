@@ -1,6 +1,6 @@
 # Inception
 
-Create .env file in your srcs file.
+Create `.env` file in your srcs folder.
 For example, the contents are below.
 
 ```.env
