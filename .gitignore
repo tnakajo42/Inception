@@ -1,0 +1,8 @@
+# .gitignore
+
+srcs/.env
+srcs/history.txt
+*.bak
+*.swp
+*.tmp
+/home/tnakajo/data/

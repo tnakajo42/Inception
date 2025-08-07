@@ -1,0 +1,73 @@
+version: '3.3'
+
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    restart: always
+    env_file: .env
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./requirements/mariadb/conf/my.cnf:/etc/my.cnf:ro
+    networks:
+      - inception
+    ports:
+      - "3306:3306"
+    image: mariadb
+
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    depends_on:
+      - mariadb
+    restart: always
+    env_file: .env
+    volumes:
+      - wordpress_data:/var/www/wordpress
+    networks:
+      - inception
+    expose:
+      - "9000"
+    image: wordpress
+
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    depends_on:
+      - wordpress
+    restart: always
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress_data:/var/www/wordpress
+    networks:
+      - inception
+    # image: nginx
+    env_file:
+      - .env
+    environment:
+      - DOMAIN_NAME=${DOMAIN_NAME}
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/tnakajo/data/mariadb_data
+      o: bind
+
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/tnakajo/data/wordpress_data
+      o: bind
+
+networks:
+  inception:
+    driver: bridge

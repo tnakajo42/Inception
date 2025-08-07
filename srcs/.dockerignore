@@ -1,0 +1,16 @@
+# Ignore environment file so it doesn't get into build context
+.env
+
+# Ignore docker-compose itself (optional)
+docker-compose.yml
+
+# Ignore secret folders
+secrets/
+
+# Ignore backup and temp files
+*.bak
+*.swp
+*.tmp
+
+# Ignore node_modules or other folders if present
+node_modules

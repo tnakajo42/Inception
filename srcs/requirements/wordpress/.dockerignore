@@ -1,0 +1,21 @@
+# Ignore environment files and git
+.env
+.git
+.gitignore
+
+# Ignore logs and temp files
+*.log
+tmp/
+*.pid
+
+# Ignore WordPress cache or uploads that you don't want to build into image
+wp-content/cache/
+wp-content/uploads/
+
+# Ignore backup and swap files
+*.bak
+*.swp
+*.tmp
+
+# Ignore node_modules if any
+node_modules

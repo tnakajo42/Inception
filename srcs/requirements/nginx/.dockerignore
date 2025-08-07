@@ -1,0 +1,17 @@
+# Ignore environment files and git
+.env
+.git
+.gitignore
+
+# Ignore logs and temp files
+*.log
+tmp/
+*.pid
+
+# Ignore backup and swap files
+*.bak
+*.swp
+*.tmp
+
+# Ignore node_modules if any
+node_modules

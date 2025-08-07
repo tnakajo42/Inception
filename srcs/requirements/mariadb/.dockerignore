@@ -1,0 +1,17 @@
+# Ignore environment files and git
+.env
+.git
+.gitignore
+
+# Ignore logs and temp files
+*.log
+tmp/
+*.pid
+
+# Ignore backup files
+*.bak
+*.swp
+*.tmp
+
+# Ignore node_modules if any (unlikely in mariadb but just in case)
+node_modules
