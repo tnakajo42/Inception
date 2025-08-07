@@ -26,3 +26,27 @@ WP_SITE_TITLE=SuperInceptionPage
 # General
 DOMAIN_NAME=tnakajo42.42.fr
 ```
+
+# How do you work?
+
+Just type:
+
+```
+$ make up
+$ make ps
+```
+
+Then, open the link.
+For example: https://tnakajo42.42.fr
+
+If you change your program, type:
+
+```
+$ make down
+```
+
+If you want to delete the Wordpress and everything, type:
+
+```
+$ make fclean
+```
