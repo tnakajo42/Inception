@@ -43,10 +43,18 @@ If you change your program, type:
 
 ```
 $ make down
+$ make up
+$ make ps
 ```
 
 If you want to delete the Wordpress and everything, type:
 
 ```
 $ make fclean
+```
+
+If you want to reboot, type:
+
+```
+$ sudo reboot
 ```
